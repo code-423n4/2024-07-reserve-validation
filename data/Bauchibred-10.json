@@ -1,0 +1,8 @@
+{
+  "contest": 421,
+  "handle": "Bauchibred",
+  "risk": "2",
+  "title": "New `RTokens` should not be issued when protocol is uncollateralized",
+  "issueId": 10,
+  "issueUrl": "https://github.com/code-423n4/2024-07-reserve-validation/issues/10"
+}
