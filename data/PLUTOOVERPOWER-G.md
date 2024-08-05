@@ -1,4 +1,6 @@
-        function pushDraft(address account, uint256 rsrAmount) 
+1)
+
+    function pushDraft(address account, uint256 rsrAmount) 
         internal
         returns (uint256 index, uint64 availableAt)
     {
@@ -63,3 +65,93 @@
 
     }
 '''
+2)
+
+    function withdraw(address account, uint256 endId) external {
+        _requireNotTradingPausedOrFrozen();
+
+        uint256 firstId = firstRemainingDraft[draftEra][account];
+        CumulativeDraft[] storage queue = draftQueues[draftEra][account];
+        if (endId == 0 || firstId >= endId) return;
+
+        // == Checks + Effects ==
+        require(endId <= queue.length, "index out-of-bounds");
+        require(queue[endId - 1].availableAt <= block.timestamp, "withdrawal unavailable");
+
+        // untestable:
+        //      firstId will never be zero, due to previous checks against endId
+        uint192 oldDrafts = firstId != 0 ? queue[firstId - 1].drafts : 0;
+        uint192 draftAmount = queue[endId - 1].drafts - oldDrafts;
+
+        // advance queue past withdrawal
+        firstRemainingDraft[draftEra][account] = endId;
+
+        // ==== Compute RSR amount
+        uint256 newTotalDrafts = totalDrafts - draftAmount;
+        // newDraftRSR: {qRSR} = {qDrafts} * D18 / D18{qDrafts/qRSR}
+        uint256 newDraftRSR = (newTotalDrafts * FIX_ONE_256 + (draftRate - 1)) / draftRate;
+        uint256 rsrAmount = draftRSR - newDraftRSR;
+
+        if (rsrAmount == 0) return;
+
+        // ==== Transfer RSR from the draft pool
+        totalDrafts = newTotalDrafts;
+        draftRSR = newDraftRSR;
+
+        // == Interactions ==
+        leakyRefresh(rsrAmount);
+        IERC20Upgradeable(address(rsr)).safeTransfer(account, rsrAmount);
+        emit UnstakingCompleted(firstId, endId, draftEra, account, rsrAmount);
+
+        // == Checks ==
+        require(basketHandler.isReady() && basketHandler.fullyCollateralized(), "RToken readying");
+    }
+
+    function withdraw(address account, uint256 endId) external {
+        _requireNotTradingPausedOrFrozen();
+
+
+        // == Checks ==
+        require(basketHandler.isReady() && basketHandler.fullyCollateralized(), "RToken readying");
+//---------------------------------------
+check the require code first. if this reverts, the users should pay allthe gas fee all the way through until it reaches this require codes.
+//---------------------------------------
+
+        uint256 firstId = firstRemainingDraft[draftEra][account];
+        CumulativeDraft[] storage queue = draftQueues[draftEra][account];
+        if (endId == 0 || firstId >= endId) return;
+
+        // == Checks + Effects ==
+        require(endId <= queue.length, "index out-of-bounds");
+        require(queue[endId - 1].availableAt <= block.timestamp, "withdrawal unavailable");
+
+        // untestable:
+        //      firstId will never be zero, due to previous checks against endId
+        uint192 oldDrafts = firstId != 0 ? queue[firstId - 1].drafts : 0;
+        uint192 draftAmount = queue[endId - 1].drafts - oldDrafts;
+
+        // advance queue past withdrawal
+        firstRemainingDraft[draftEra][account] = endId;
+
+        // ==== Compute RSR amount
+        uint256 newTotalDrafts = totalDrafts - draftAmount;
+        // newDraftRSR: {qRSR} = {qDrafts} * D18 / D18{qDrafts/qRSR}
+        uint256 newDraftRSR = (newTotalDrafts * FIX_ONE_256 + (draftRate - 1)) / draftRate;
+        uint256 rsrAmount = draftRSR - newDraftRSR;
+
+        if (rsrAmount == 0) return;
+
+        // ==== Transfer RSR from the draft pool
+        totalDrafts = newTotalDrafts;
+        draftRSR = newDraftRSR;
+
+        // == Interactions ==
+        leakyRefresh(rsrAmount);
+        IERC20Upgradeable(address(rsr)).safeTransfer(account, rsrAmount);
+        emit UnstakingCompleted(firstId, endId, draftEra, account, rsrAmount);
+
+    
+    }
+
+
+
