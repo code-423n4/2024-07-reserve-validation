@@ -73,3 +73,33 @@ Suggestion: Add a check to ensure that longFreezes[_msgSender()] is greater than
 require(longFreezes[_msgSender()] > 0, "no long freeze charges left");
 longFreezes[_msgSender()] -= 1;
 ```
+
+## QA7 Unchecked Low-Level Call in rebalance function in BackingManager.sol
+
+File: [BackingManager.sol:82](https://github.com/code-423n4/2024-07-reserve/blob/154db90db4f870d147a149e62ffc5e4e6380af00/contracts/p0/BackingManager.sol#L82)
+
+Issue: In the rebalance function, there is a low-level call to ```main.stRSR().seizeRSR(req.sellAmount - bal);``` if the balance is insufficient. If this call fails, there is no handling for potential issues like insufficient gas or reentrancy attacks.
+
+Impact: If the call to seize RSR fails due to unexpected reasons (e.g., a reentrancy attack or a gas limit issue), it could leave the contract in an undercollateralized state or prevent the system from functioning as intended.
+
+Mitigation: Consider implementing error handling around this call to log failures or revert the transaction with a specific reason.
+
+## QA8: Potential risks with External Calls in BackingManager.sol
+
+File: [BackingManager.sol](https://github.com/code-423n4/2024-07-reserve/blob/154db90db4f870d147a149e62ffc5e4e6380af00/contracts/p0/BackingManager.sol)
+
+Issue: The contract interacts with external contracts like ```main.stRSR()``` and ```main.rToken()``` in functions like ```rebalance```, ```forwardRevenue```, and ```settleTrade```. If these external contracts are untrusted, there is a potential reentrancy risk.
+
+Impact: If one of these external calls triggers a reentrant call back into the BackingManager, it could manipulate the state in unintended ways, such as altering the balances or causing double spending.
+
+Mitigation: Use the nonReentrant modifier on critical functions that interact with external contracts, especially those that modify state and consider minimizing external calls after state changes. 
+
+## QA9: Potential for Stale Data in forwardRevenue in BackingManager.sol
+
+File: [BackingManager.sol:157](https://github.com/code-423n4/2024-07-reserve/blob/154db90db4f870d147a149e62ffc5e4e6380af00/contracts/p0/BackingManager.sol#L157)
+
+Issue: The forwardRevenue function relies on a snapshot of basket quantities and balances. If the state of the basket changes after this snapshot but before the revenue is forwarded, the system may operate on stale data.
+
+Impact: This could result in incorrect revenue distribution, potentially leading to over- or under-distribution of tokens.
+
+Mitigation: Refresh the state immediately before performing calculations that depend on basket quantities and balances or minimize the time before snapshot is taken and used. (eg. refresh ```basketsHeld``` right before usage a few lines down)
