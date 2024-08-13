@@ -2,34 +2,36 @@
 
 ## Table of Contents
 
-| Issue ID | Description |
-| -------- | ----------- |
-| [QA-01](#qa-01-gnosistrade#init()s-minbuyamountperorder-calculation-should-be-based-on-asset-value-not-token-fraction) | `GnosisTrade#init()`'s `minBuyAmountPerOrder` calculation should be based on asset value not token fraction |
-| [QA-02](#qa-02-baskethandler.warmupperiod-can-be-changed-during-warm-up-period-disrupting-system-readiness) | BasketHandler.warmupPeriod can be changed during warm-up period disrupting system readiness |
-| [QA-03](#qa-03-consider-init-ing-gnosistrade-before-transfers-are-done) | Consider `init` ing GnosisTrade before transfers are done |
-| [QA-04](#qa-04-reorg-attacks-can-lead-to-user-fund-trapping-and-incorrect-auction-bidding) | Reorg attacks can lead to user fund trapping and incorrect auction bidding |
-| [QA-05](#qa-05-fix-typos-_multiple-instances_) | Fix typos _multiple instances_ |
-| [QA-06](#qa-06-consider-integrating-gnosistrade.cansettle()-into-gnosistrade.settle()-or-a-similar-functionality) | Consider integrating `GnosisTrade.canSettle()` into `GnosisTrade.settle()` or a similar functionality |
-| [QA-07](#qa-07-somewhat-broken-logic-in-regards-to-changing-the-delay-for-unstaking) | Somewhat broken logic in regards to changing the delay for unstaking |
-| [QA-08](#qa-08-consider-removing-storage-gaps-in-favour-of-using-diamondstorage) | Consider removing storage gaps in favour of using `DiamondStorage` |
-| [QA-09](#qa-09-invariant-of-having-unique-erc20-tokens-when-forwarding-revenue-can-be-broken) | Invariant of having unique erc20 tokens when forwarding revenue can be broken |
-| [QA-10](#qa-10-an-admin-cant-set-the-most-accurate-value-for-a-_long-freeze_) | An admin can't set the most accurate value for a _long freeze_ |
-| [QA-11](#qa-11-main#poke()-is-meant-for-testing-and-should-be-removed-before-final-production) | `Main#poke()` is meant for testing and should be removed before final production |
-| [QA-12](#qa-12-incorrect-logical-operator-in-auction-length-validation-allows-setting-zero-auction-length) | Incorrect logical operator in auction length validation allows setting `zero auction length` |
-| [QA-13](#qa-13-remove-misleading-comments-from-production) | Remove misleading comments from production |
-| [QA-14](#qa-14-precision-issue-in-baskethandler.quote-function) | Precision issue in BasketHandler.quote function |
-| [QA-15](#qa-15-dutchtrade-inconsistent-time-check-in-cansettle()-&-settle()) | `DutchTrade`: Inconsistent time check in `canSettle()` & `settle()` |
-| [QA-16](#qa-16-wrong-implementation-of-the-storage-gap-in-auth.sol) | Wrong implementation of the storage gap in `Auth.sol` |
-| [QA-17](#qa-17-trade-slippage-can-never-be-set-to-the-accepted-max) | Trade slippage can never be set to the accepted max |
-| [QA-18](#qa-18-setters-dont-have-equality-checkers) | Setters don't have equality checkers |
-| [QA-19](#qa-19-fix_max_int-is-wrongly-set) | `FIX_MAX_INT` is wrongly set |
-| [QA-20](#qa-20-permitlib#requiresignature()-could-fail-even-for-valid-signatures-from-counterfactual-wallets) | `PermitLib#requireSignature()` could fail even for valid signatures from counterfactual wallets |
-| [QA-21](#qa-21-auth#setlongfreeze()-should-include-more-checks) | `Auth#setLongFreeze()` should include more checks |
-| [QA-22](#qa-22-remove-unused-imports-in-main.sol) | Remove unused imports in `Main.sol` |
-| [QA-23](#qa-23-consider-using-_disableinitializers()-for-upgradeable-contracts) | Consider using `_disableInitializers()` for upgradeable contracts |
-| [QA-24](#qa-24-import-declarations-should-import-specific-identifiers-rather-than-the-whole-file) | Import declarations should import specific identifiers, rather than the whole file |
-| [QA-25](#qa-25-do-not-import-deprecated-files) | Do not import deprecated files |
-| [QA-26](#qa-26-attach-an-overflow-protection-in-fixed#plus()) | Attach an overflow protection in `Fixed#plus()` |
+| Issue ID                                                                                                                 | Description                                                                                                 |
+| ------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------- |
+| [QA-01](<#qa-01-gnosistrade#init()s-minbuyamountperorder-calculation-should-be-based-on-asset-value-not-token-fraction>) | `GnosisTrade#init()`'s `minBuyAmountPerOrder` calculation should be based on asset value not token fraction |
+| [QA-02](#qa-02-baskethandler.warmupperiod-can-be-changed-during-warm-up-period-disrupting-system-readiness)              | BasketHandler.warmupPeriod can be changed during warm-up period disrupting system readiness                 |
+| [QA-03](#qa-03-consider-init-ing-gnosistrade-before-transfers-are-done)                                                  | Consider `init` ing GnosisTrade before transfers are done                                                   |
+| [QA-04](#qa-04-reorg-attacks-can-lead-to-user-fund-trapping-and-incorrect-auction-bidding)                               | Reorg attacks can lead to user fund trapping and incorrect auction bidding                                  |
+| [QA-05](#qa-05-fix-typos-_multiple-instances_)                                                                           | Fix typos _multiple instances_                                                                              |
+| [QA-06](<#qa-06-consider-integrating-gnosistrade.cansettle()-into-gnosistrade.settle()-or-a-similar-functionality>)      | Consider integrating `GnosisTrade.canSettle()` into `GnosisTrade.settle()` or a similar functionality       |
+| [QA-07](#qa-07-somewhat-broken-logic-in-regards-to-changing-the-delay-for-unstaking)                                     | Somewhat broken logic in regards to changing the delay for unstaking                                        |
+| [QA-08](#qa-08-consider-removing-storage-gaps-in-favour-of-using-diamondstorage)                                         | Consider removing storage gaps in favour of using `DiamondStorage`                                          |
+| [QA-09](#qa-09-invariant-of-having-unique-erc20-tokens-when-forwarding-revenue-can-be-broken)                            | Invariant of having unique erc20 tokens when forwarding revenue can be broken                               |
+| [QA-10](#qa-10-an-admin-cant-set-the-most-accurate-value-for-a-_long-freeze_)                                            | An admin can't set the most accurate value for a _long freeze_                                              |
+| [QA-11](<#qa-11-main#poke()-is-meant-for-testing-and-should-be-removed-before-final-production>)                         | `Main#poke()` is meant for testing and should be removed before final production                            |
+| [QA-12](#qa-12-incorrect-logical-operator-in-auction-length-validation-allows-setting-zero-auction-length)               | Incorrect logical operator in auction length validation allows setting `zero auction length`                |
+| [QA-13](#qa-13-remove-misleading-comments-from-production)                                                               | Remove misleading comments from production                                                                  |
+| [QA-14](#qa-14-precision-issue-in-baskethandler.quote-function)                                                          | Precision issue in BasketHandler.quote function                                                             |
+| [QA-15](<#qa-15-dutchtrade-inconsistent-time-check-in-cansettle()-&-settle()>)                                           | `DutchTrade`: Inconsistent time check in `canSettle()` & `settle()`                                         |
+| [QA-16](#qa-16-wrong-implementation-of-the-storage-gap-in-auth.sol)                                                      | Wrong implementation of the storage gap in `Auth.sol`                                                       |
+| [QA-17](#qa-17-trade-slippage-can-never-be-set-to-the-accepted-max)                                                      | Trade slippage can never be set to the accepted max                                                         |
+| [QA-18](#qa-18-setters-dont-have-equality-checkers)                                                                      | Setters don't have equality checkers                                                                        |
+| [QA-19](#qa-19-fix_max_int-is-wrongly-set)                                                                               | `FIX_MAX_INT` is wrongly set                                                                                |
+| [QA-20](<#qa-20-permitlib#requiresignature()-could-fail-even-for-valid-signatures-from-counterfactual-wallets>)          | `PermitLib#requireSignature()` could fail even for valid signatures from counterfactual wallets             |
+| [QA-21](<#qa-21-auth#setlongfreeze()-should-include-more-checks>)                                                        | `Auth#setLongFreeze()` should include more checks                                                           |
+| [QA-22](#qa-22-remove-unused-imports-in-main.sol)                                                                        | Remove unused imports in `Main.sol`                                                                         |
+| [QA-23](<#qa-23-consider-using-_disableinitializers()-for-upgradeable-contracts>)                                        | Consider using `_disableInitializers()` for upgradeable contracts                                           |
+| [QA-24](#qa-24-import-declarations-should-import-specific-identifiers-rather-than-the-whole-file)                        | Import declarations should import specific identifiers, rather than the whole file                          |
+| [QA-25](#qa-25-do-not-import-deprecated-files)                                                                           | Do not import deprecated files                                                                              |
+| [QA-26](<#qa-26-attach-an-overflow-protection-in-fixed#plus()>)                                                          | Attach an overflow protection in `Fixed#plus()`                                                             |
+| [QA-27](<#qa-27-links-in-core-documentation-should-not-lead-to-crashing-pages>)                                                          | Links in core documentation should not lead to crashing pages                                                             |
+
 ## QA-01 `GnosisTrade#init()`'s `minBuyAmountPerOrder` calculation should be based on asset value not token fraction
 
 ### Proof of Concept
@@ -1555,3 +1557,22 @@ QA
 ### Recommended Mitigation Steps
 
 Consider reverting with a descriptive error message when the value is > `uint192`.
+
+## QA-27 Links in core documentation should not lead to crashing pages
+
+### Proof of Concept
+
+We've been hinted the official page for the protocol's docs here: https://reserve.org/protocol/, by the C4 team via the readMe for the audit.
+
+However on going to this link, under smart contracts: https://reserve.org/protocol/smart_contracts/, on clicking the _developer documentation_, the page crashes, i.e:
+
+![Image](https://ibb.co/Q6gPF9X)
+![Image](https://i.ibb.co/JQPYj0R)
+
+### Impact
+
+QA
+
+### Recommended Mitigation Steps
+
+Consider fixing valid links in docs or removing it as a whole.
