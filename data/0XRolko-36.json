@@ -1,0 +1,8 @@
+{
+  "contest": 421,
+  "handle": "0XRolko",
+  "risk": "2",
+  "title": "Reentrancy Vulnerability in `Distributor::_setDistribution` function",
+  "issueId": 36,
+  "issueUrl": "https://github.com/code-423n4/2024-07-reserve-validation/issues/36"
+}
