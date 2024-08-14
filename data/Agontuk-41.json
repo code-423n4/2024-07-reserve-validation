@@ -1,0 +1,8 @@
+{
+  "contest": 421,
+  "handle": "Agontuk",
+  "risk": "3",
+  "title": "Attacker can manipulate token balances to affect auction settlement (`GnosisTrade::settle`)",
+  "issueId": 41,
+  "issueUrl": "https://github.com/code-423n4/2024-07-reserve-validation/issues/41"
+}
