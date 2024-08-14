@@ -1,0 +1,8 @@
+{
+  "contest": 421,
+  "handle": "Agontuk",
+  "risk": "3",
+  "title": "Malicious users can manipulate redemption throttle to bypass redemption limits (`RTokenP1::issueTo`)",
+  "issueId": 43,
+  "issueUrl": "https://github.com/code-423n4/2024-07-reserve-validation/issues/43"
+}
