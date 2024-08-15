@@ -1,0 +1,8 @@
+{
+  "contest": 421,
+  "handle": "Agontuk",
+  "risk": "3",
+  "title": "Incorrect `tokensOut` Mapping Update Can Lead to Over-Collateralization or Under-Collateralization (`BackingManagerP1::rebalance`)",
+  "issueId": 68,
+  "issueUrl": "https://github.com/code-423n4/2024-07-reserve-validation/issues/68"
+}
