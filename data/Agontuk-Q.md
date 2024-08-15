@@ -1,10 +1,10 @@
-| Issue Number | Issue Title |
-|--------------|--------------|
+| ID   | Report Title                                                                 |
+|------|------------------------------------------------------------------------------|
 | [L-01](#l-01-public-cachecomponents-function-can-lead-to-inconsistent-state-and-unauthorized-changes) | Public `cacheComponents()` function can lead to inconsistent state and unauthorized changes |
 | [L-02](#l-02-potential-overwriting-of-existing-trades-in-trytrade-function) | Potential overwriting of existing trades in `tryTrade()` function |
 | [L-03](#l-03-inefficient-handling-of-tokentobuy-in-managetokens-function) | Inefficient handling of `tokenToBuy` in `manageTokens` function |
 | [L-04](#l-04-immutable-tokentobuy-limits-flexibility-in-token-distribution) | Immutable `tokenToBuy` limits flexibility in token distribution |
-| [L-05](#l-05-inefficient-handling-of-small-token-balances-in-managetokens-leading-to-potential-dust-accumulation) | Inefficient handling of small token balances in `manageTokens()` leading to potential dust accumulation |
+| [L-05](#l-05-inefficient-handling-of-small-token-balances-in-managetokens-leading-to-potential-dust-accumulation) | Inefficient handling of small token balances in `manageTokens` leading to potential dust accumulation |
 | [L-06](#l-06-static-slippage-parameter-may-lead-to-inefficient-trades-in-managetokens) | Static slippage parameter may lead to inefficient trades in `manageTokens` |
 | [L-07](#l-07-potential-for-minimal-token-loss-in-distributor-due-to-integer-division) | Potential for minimal token loss in Distributor due to integer division |
 | [L-08](#l-08-potential-race-condition-in-baskethandlers-refreshbasket-function) | Potential race condition in BasketHandler's `refreshBasket` function |
@@ -14,8 +14,21 @@
 | [L-12](#l-12-race-condition-in-baskethandler-may-lead-to-inconsistent-collateralization-tracking) | Race condition in BasketHandler may lead to inconsistent collateralization tracking |
 | [L-13](#l-13-dynamic-warmup-period-changes-in-baskethandler-may-lead-to-premature-basket-readiness) | Dynamic warmup period changes in BasketHandler may lead to premature basket readiness |
 | [L-14](#l-14-custom-redemption-function-allows-potential-manipulation-through-historical-basket-selection) | Custom redemption function allows potential manipulation through historical basket selection |
-| [L-15](#l-15-inefficient-handling-of-dust-balances-in-recollateralizationlib-may-lead-to-unnecessary-trades) | Inefficient handling of dust balances in `RecollateralizationLib` may lead to unnecessary trades |
-| [L-16](#l-16-unsafe-casting-of-uint8-to-int8-in-baskethandlers-quote-function) | Unsafe casting of `uint8` to `int8` in BasketHandler's `quote()` function |
+| [L-15](#l-15-inefficient-handling-of-dust-balances-in-recollateralizationlib-may-lead-to-unnecessary-trades) | Inefficient handling of dust balances in RecollateralizationLib may lead to unnecessary trades |
+| [L-16](#l-16-unsafe-casting-of-uint8-to-int8-in-baskethandlers-quote-function) | Unsafe casting of `uint8` to `int8` in BasketHandler's `quote` function |
+| [L-17](#l-17-inconsistent-delegation-handling-in-strsrp1votes-contract-limits-user-control-over-voting-power) | Inconsistent delegation handling in `StRSRP1Votes` contract limits user control over voting power |
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 ## [L-01] Public `cacheComponents()` function can lead to inconsistent state and unauthorized changes
@@ -809,4 +822,54 @@ quantities[i] = q.shiftl_toUint(int8(decimals), rounding);
 ```
 
 This check prevents potential overflow issues while maintaining compatibility with standard ERC20 tokens.
+
+
+
+
+## [L-17] Inconsistent delegation handling in StRSRP1Votes contract limits user control over voting power
+
+## Vulnerability Detail 
+
+The `stakeAndDelegate()` function in the `StRSRP1Votes` contract does not handle all possible scenarios for delegation management consistently. Specifically:
+
+1. Users cannot remove their delegation by passing `address(0)` if they already have a delegate.
+2. Users cannot explicitly delegate to themselves if they already have a different delegate.
+
+This limitation affects the governance functionality and user experience, as users may not be able to manage their voting power as intended. The current implementation only updates delegation if the new `delegatee` is not `address(0)` and is different from the current delegate:
+
+```solidity
+function stakeAndDelegate(uint256 rsrAmount, address delegatee) external {
+    stake(rsrAmount);
+    address caller = _msgSender();
+    address currentDelegate = delegates(caller);
+
+    if (delegatee == address(0) && currentDelegate == address(0)) {
+        _delegate(caller, caller);
+    } else if (delegatee != address(0) && currentDelegate != delegatee) {
+        _delegate(caller, delegatee);
+    }
+}
+```
+
+## Recommendation
+
+Modify the `stakeAndDelegate()` function to handle all possible delegation scenarios consistently:
+
+```solidity
+function stakeAndDelegate(uint256 rsrAmount, address delegatee) external {
+    stake(rsrAmount);
+    address caller = _msgSender();
+    address currentDelegate = delegates(caller);
+
+    if (delegatee == address(0)) {
+        delegatee = caller;
+    }
+
+    if (currentDelegate != delegatee) {
+        _delegate(caller, delegatee);
+    }
+}
+```
+
+This change ensures that users can remove their delegation by passing `address(0)` and explicitly delegate to themselves even if they already have a different delegate.
 
