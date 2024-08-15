@@ -16,3 +16,27 @@ So I would suggest moving the following code snippet from `RToken::redeemCustom(
     require(portionsSum == FIX_ONE, "portions do not add up to FIX_ONE");
 ```
 
+## [L-02] A bidder can lose their assets if he transfers an exceeding amount of tokens to dutch trade through the callback.
+
+The callback mode of Dutch trade lets bidders to send their tokens from callback function, and after running callback, the `bidWithCallback()` function checks the income amount of assets with `amountIn` value.
+
+```solidity
+    require(
+        amountIn <= buy.balanceOf(address(this)) - balanceBefore,
+        "insufficient buy tokens"
+    );
+```
+
+If the bidder transfers more tokens than `amountIn`, the leftovers will be locked in the trade, and will be transferred to backing manager or traders after settlement which result in the loss of user's token.
+
+Therefore, I suggest add the code snippet to refund leftover tokens if an income amount is greater than expected like the below:
+
+```solidity
+    const boughtAmt = buy.balanceOf(address(this)) - balanceBefore;
+    require(
+        amountIn <= boughtAmt,
+        "insufficient buy tokens"
+    );
+    if (boughtAmt > amountIn)
+        buy.transfer(bidder, boughtAmt - amountIn);
+```
