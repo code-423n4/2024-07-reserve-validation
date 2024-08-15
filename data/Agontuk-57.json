@@ -1,0 +1,8 @@
+{
+  "contest": 421,
+  "handle": "Agontuk",
+  "risk": "2",
+  "title": "Incorrect Handling of `amtBaskets` During Initial Issuance May Lead to State Inconsistencies (`RTokenP1::issueTo`)",
+  "issueId": 57,
+  "issueUrl": "https://github.com/code-423n4/2024-07-reserve-validation/issues/57"
+}
