@@ -1,0 +1,8 @@
+{
+  "contest": 421,
+  "handle": "AerialRaider",
+  "risk": "2",
+  "title": "in the Fixed.sol the testSqrt(uint192) function failed when trying to calculate the square root of 1 (the input value x was 1)",
+  "issueId": 92,
+  "issueUrl": "https://github.com/code-423n4/2024-07-reserve-validation/issues/92"
+}
