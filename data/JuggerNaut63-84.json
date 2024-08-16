@@ -1,0 +1,8 @@
+{
+  "contest": 421,
+  "handle": "JuggerNaut63",
+  "risk": "2",
+  "title": "Unchecked Return Value in ERC20 Approve Function",
+  "issueId": 84,
+  "issueUrl": "https://github.com/code-423n4/2024-07-reserve-validation/issues/84"
+}
