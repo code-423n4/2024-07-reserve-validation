@@ -1,0 +1,8 @@
+{
+  "contest": 421,
+  "handle": "debo",
+  "risk": "2",
+  "title": "Unchecked Return Values on the Deploy function in the Deployer contract",
+  "issueId": 96,
+  "issueUrl": "https://github.com/code-423n4/2024-07-reserve-validation/issues/96"
+}
