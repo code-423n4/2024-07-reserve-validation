@@ -1,0 +1,8 @@
+{
+  "contest": 421,
+  "handle": "K42",
+  "risk": "2",
+  "title": "Over-Issuance of `RTokens` because no effective allowance checks ",
+  "issueId": 95,
+  "issueUrl": "https://github.com/code-423n4/2024-07-reserve-validation/issues/95"
+}
