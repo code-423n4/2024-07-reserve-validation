@@ -1,0 +1,8 @@
+{
+  "contest": 421,
+  "handle": "Jorgect",
+  "risk": "2",
+  "title": "`price` in the `BasketHandler` could be major than the FIX_MAX",
+  "issueId": 98,
+  "issueUrl": "https://github.com/code-423n4/2024-07-reserve-validation/issues/98"
+}
