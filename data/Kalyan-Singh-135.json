@@ -1,0 +1,8 @@
+{
+  "contest": 421,
+  "handle": "Kalyan-Singh",
+  "risk": "2",
+  "title": "MinTradeVolume is subtracted more times than it should",
+  "issueId": 135,
+  "issueUrl": "https://github.com/code-423n4/2024-07-reserve-validation/issues/135"
+}
