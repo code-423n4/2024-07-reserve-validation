@@ -1,0 +1,8 @@
+{
+  "contest": 421,
+  "handle": "Rhaydden",
+  "risk": "2",
+  "title": "Redemption quantities not adjusted for mempool time leading to potential over-redemption",
+  "issueId": 139,
+  "issueUrl": "https://github.com/code-423n4/2024-07-reserve-validation/issues/139"
+}
