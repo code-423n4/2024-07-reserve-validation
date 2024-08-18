@@ -1,0 +1,8 @@
+{
+  "contest": 421,
+  "handle": "Rhaydden",
+  "risk": "2",
+  "title": "SHORT_FREEZER role revocation occurs before freeze application",
+  "issueId": 126,
+  "issueUrl": "https://github.com/code-423n4/2024-07-reserve-validation/issues/126"
+}
