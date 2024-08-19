@@ -1,0 +1,8 @@
+{
+  "contest": 421,
+  "handle": "JC",
+  "risk": "2",
+  "title": "Uncontrolled Recursion Vulnerability In the `_switchBasket` function can result in DOS",
+  "issueId": 262,
+  "issueUrl": "https://github.com/code-423n4/2024-07-reserve-validation/issues/262"
+}
