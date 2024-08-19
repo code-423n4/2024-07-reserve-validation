@@ -1,0 +1,8 @@
+{
+  "contest": 421,
+  "handle": "WildSniper",
+  "risk": "3",
+  "title": "In Broker.sol, Rounding down in wrong direction will cause leakage of value",
+  "issueId": 162,
+  "issueUrl": "https://github.com/code-423n4/2024-07-reserve-validation/issues/162"
+}
