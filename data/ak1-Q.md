@@ -20,4 +20,4 @@ require(
             "duplicate ERC20 detected"
         );
 
-As shown above, the function incorrectly validate the invariant check.
+As shown above, the function incorrectly validate the invariant check. The assets[erc20] = asset; will be overwritten unknowingly.
