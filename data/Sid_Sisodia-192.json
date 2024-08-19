@@ -1,0 +1,8 @@
+{
+  "contest": 421,
+  "handle": "Sid_Sisodia",
+  "risk": "3",
+  "title": "Reentrancy Concerns with External Calls in refreshBasket() function",
+  "issueId": 192,
+  "issueUrl": "https://github.com/code-423n4/2024-07-reserve-validation/issues/192"
+}
