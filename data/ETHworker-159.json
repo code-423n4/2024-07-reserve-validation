@@ -1,0 +1,8 @@
+{
+  "contest": 421,
+  "handle": "ETHworker",
+  "risk": "2",
+  "title": "Stale Basket Data Used in RTokenP1.redeemCustom() Can Lead to Incorrect Redemption Amounts",
+  "issueId": 159,
+  "issueUrl": "https://github.com/code-423n4/2024-07-reserve-validation/issues/159"
+}
