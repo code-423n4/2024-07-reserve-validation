@@ -1,0 +1,8 @@
+{
+  "contest": 421,
+  "handle": "Spomaria",
+  "risk": "2",
+  "title": "The `DutchTrade::init` function will always revert due to difference in initial `TradeStatus` requirement by `DutchTrade::stateTransition` modifier and TradeStatus value set in the constructor at deployment",
+  "issueId": 149,
+  "issueUrl": "https://github.com/code-423n4/2024-07-reserve-validation/issues/149"
+}
