@@ -1,0 +1,8 @@
+{
+  "contest": 421,
+  "handle": "Spomaria",
+  "risk": "2",
+  "title": "The `GnosisTrade::init` function will always revert due to difference in initial `TradeStatus` requirement by `GnosisTrade::stateTransition` modifier and TradeStatus value set in the constructor at deployment",
+  "issueId": 151,
+  "issueUrl": "https://github.com/code-423n4/2024-07-reserve-validation/issues/151"
+}
