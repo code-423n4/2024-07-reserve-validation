@@ -1,0 +1,8 @@
+{
+  "contest": 421,
+  "handle": "Akay",
+  "risk": "2",
+  "title": "Incorrect removal of asset from mapping in `unregister` function",
+  "issueId": 148,
+  "issueUrl": "https://github.com/code-423n4/2024-07-reserve-validation/issues/148"
+}
