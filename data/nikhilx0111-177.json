@@ -1,0 +1,8 @@
+{
+  "contest": 421,
+  "handle": "nikhilx0111",
+  "risk": "3",
+  "title": "loop iterates over wrong erc length array for backup tokens in baskethandler.sol",
+  "issueId": 177,
+  "issueUrl": "https://github.com/code-423n4/2024-07-reserve-validation/issues/177"
+}
