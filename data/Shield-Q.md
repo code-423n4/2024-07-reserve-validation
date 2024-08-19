@@ -308,39 +308,7 @@ assert(address(sell_) != address(0) && address(buy_) != address(0) && auctionLen
 ```
 so the min auction length is always close to 30 mins
 
-
-## 13. Missing check in `BasketHandler.quantityUnsafe`
-
-### Lines of Code
-https://github.com/code-423n4/2024-07-reserve/blob/main/contracts/p1/BasketHandler.sol#L359
-
-### Description
-In the `BasketHandler.quantityUnsafe` function it is assumed that the asset is correct. But there is no check in place to ensure that the erc20 is registered in the AssetRegistry.
-
-Prior to the other calls to the `BasketHandler._quantity` function it is verified that the erc20 is registered in the AssetRegistry but not in the case of quantityUnsafe function.
-
-### Recommended Mitigation Steps 
-Add the `toColl` check in `quantityUnsafe` too like in `quantity`
-
-
-## 14. Discrepancy in code & comments
-
-### Lines of Code
-https://github.com/code-423n4/2024-07-reserve/blob/main/contracts/p1/BasketHandler.sol#L214
-
-https://github.com/code-423n4/2024-07-reserve/blob/main/contracts/p1/BasketHandler.sol#L237
-
-### Description
-In `_setPrimeBasket` there is a comment 
-`/// @param disableTargetAmountCheck If true, skips the `requireConstantConfigTargets()` check`
-
-but actually even if `disableTargetAmountCheck` is true & `reweightable` is false then too `requireConstantConfigTargets` is called
-
-
-### Recommended Mitigation Steps
-Update the comment to mention both scenario's where `requireConstantConfigTargets` is called/skipped
-
-## 15. missing check in `setBackupConfig` affects 100 % utilisation of backup collateral assets
+## 13. missing check in `setBackupConfig` affects 100 % utilisation of backup collateral assets
 
 
 ### Lines of Code
@@ -376,3 +344,20 @@ Add the following check in `setBackupConfig`
 ```
 require(erc20s.length <= max, "Invalid backup config");
 ```
+
+## 14. Discrepancy in code & comments
+
+### Lines of Code
+https://github.com/code-423n4/2024-07-reserve/blob/main/contracts/p1/BasketHandler.sol#L214
+
+https://github.com/code-423n4/2024-07-reserve/blob/main/contracts/p1/BasketHandler.sol#L237
+
+### Description
+In `_setPrimeBasket` there is a comment 
+`/// @param disableTargetAmountCheck If true, skips the `requireConstantConfigTargets()` check`
+
+but actually even if `disableTargetAmountCheck` is true & `reweightable` is false then too `requireConstantConfigTargets` is called
+
+
+### Recommended Mitigation Steps
+Update the comment to mention both scenario's where `requireConstantConfigTargets` is called/skipped
