@@ -1,0 +1,8 @@
+{
+  "contest": 421,
+  "handle": "PrasadLak",
+  "risk": "2",
+  "title": "DOS stakeAndDelegate function due to not to write _checkpoints during minting ",
+  "issueId": 144,
+  "issueUrl": "https://github.com/code-423n4/2024-07-reserve-validation/issues/144"
+}
