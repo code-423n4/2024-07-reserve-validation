@@ -149,7 +149,7 @@ require(
 
 https://github.com/code-423n4/2024-07-reserve/blob/main/contracts/plugins/trading/DutchTrade.sol#L258-L262
 
-## 7. There is no check for duplicates on the `erc20s array` passed on to the `RevenueTrader.manageTokens` function
+## 7. A user can distribute the `full buyToken balance of the RevenueTrader contract` to the `destinations`, by calling the `_distributeTokenToBuy` function multiple times
 
 The `Distributor.distribute` function is used to `distribute` either the `RToken` or the `rsrToken` to the `respective destinations`. 
 
