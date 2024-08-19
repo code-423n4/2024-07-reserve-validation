@@ -1,0 +1,8 @@
+{
+  "contest": 421,
+  "handle": "NexusAudits",
+  "risk": "2",
+  "title": "Imbalanced Basket Weights Due to Changing Collateral Status",
+  "issueId": 249,
+  "issueUrl": "https://github.com/code-423n4/2024-07-reserve-validation/issues/249"
+}
