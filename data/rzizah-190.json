@@ -1,0 +1,8 @@
+{
+  "contest": 421,
+  "handle": "rzizah",
+  "risk": "3",
+  "title": "Users get less revenue than intended due to bad design in issueTo function in RTokenP1 contract",
+  "issueId": 190,
+  "issueUrl": "https://github.com/code-423n4/2024-07-reserve-validation/issues/190"
+}
