@@ -56,3 +56,40 @@ but actually even if `disableTargetAmountCheck` is true & `reweightable` is fals
 
 ### Recommended Mitigation Steps
 Update the comment to mention both scenario's where `requireConstantConfigTargets` is called/skipped
+
+## L-04 missing check in `setBackupConfig` affects 100 % utilisation of backup collateral assets
+
+
+### Lines of Code
+https://github.com/code-423n4/2024-07-reserve/blob/main/contracts/p1/BasketHandler.sol#L284
+
+https://github.com/code-423n4/2024-07-reserve/blob/main/contracts/p1/mixins/BasketLib.sol#L252
+
+### Description
+In `setBackupConfig` we set the `BackupConfig` struct which has 2 params 
+```
+struct BackupConfig {
+    uint256 max; // Maximum number of backup collateral erc20s to use in a basket
+    IERC20[] erc20s; // Ordered list of backup collateral ERC20s
+}
+```
+
+so `max` should always be `=> erc20s.length`  but there is no such check in `setBackupConfig`
+
+now this can also affect the `nextBasket` backup weight logic as there is a for loop with multiple conditions to handle backup weights
+
+```
+            for (uint256 j = 0; j < backup.erc20s.length && size < backup.max; ++j) {
+                if (goodCollateral(_targetName, backup.erc20s[j], assetRegistry)) size++;
+            }
+```
+
+now let's assume that `size > backup.erc20s.length` & all backup collaterals are good collaterals so therefore once the loop ends size will be `max - 1` but ideally it should be `backup.erc20s.length` and since the weights for backup tokens are divided equally therefore some backup assets can remain un-utilised
+
+
+### Recommended Mitigation Steps
+Add the following check in `setBackupConfig`
+
+```
+require(erc20s.length <= max, "Invalid backup config");
+```
