@@ -1,0 +1,8 @@
+{
+  "contest": 421,
+  "handle": "Sid_Sisodia",
+  "risk": "3",
+  "title": "Lack of Access Control in AssetRegistryP1 Contract ::swapRegistered(IAsset asset)  ",
+  "issueId": 182,
+  "issueUrl": "https://github.com/code-423n4/2024-07-reserve-validation/issues/182"
+}
