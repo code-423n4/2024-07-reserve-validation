@@ -1,0 +1,8 @@
+{
+  "contest": 421,
+  "handle": "JC",
+  "risk": "2",
+  "title": "Insufficient Gas Validation in AssetRegistry.sol",
+  "issueId": 253,
+  "issueUrl": "https://github.com/code-423n4/2024-07-reserve-validation/issues/253"
+}
