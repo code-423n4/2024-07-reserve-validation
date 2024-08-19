@@ -1,0 +1,8 @@
+{
+  "contest": 421,
+  "handle": "Sid_Sisodia",
+  "risk": "2",
+  "title": "Inconsistent Error Handling in RevenueTraderP1() ::settleTrade",
+  "issueId": 170,
+  "issueUrl": "https://github.com/code-423n4/2024-07-reserve-validation/issues/170"
+}
