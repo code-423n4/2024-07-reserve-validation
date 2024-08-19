@@ -1,0 +1,8 @@
+{
+  "contest": 421,
+  "handle": "SUPERMAN_I4G",
+  "risk": "2",
+  "title": "Governance Resets Draft Records Even When DraftRate is Safe or Healthy Which Could Cause Loss of Funds or DOS",
+  "issueId": 145,
+  "issueUrl": "https://github.com/code-423n4/2024-07-reserve-validation/issues/145"
+}
