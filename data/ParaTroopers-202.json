@@ -1,0 +1,8 @@
+{
+  "contest": 421,
+  "handle": "ParaTroopers",
+  "risk": "2",
+  "title": " MEV strategy on `stRSR::seizeRSR` without subject to staking risk during rebalances",
+  "issueId": 202,
+  "issueUrl": "https://github.com/code-423n4/2024-07-reserve-validation/issues/202"
+}
