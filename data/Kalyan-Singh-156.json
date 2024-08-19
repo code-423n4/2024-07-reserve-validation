@@ -1,0 +1,8 @@
+{
+  "contest": 421,
+  "handle": "Kalyan-Singh",
+  "risk": "2",
+  "title": "Freezing of unclaimed yield due to insufficient checks in forwardRevenue() of BackingManager",
+  "issueId": 156,
+  "issueUrl": "https://github.com/code-423n4/2024-07-reserve-validation/issues/156"
+}
