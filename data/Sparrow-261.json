@@ -1,0 +1,8 @@
+{
+  "contest": 421,
+  "handle": "Sparrow",
+  "risk": "2",
+  "title": "Systemic Vulnerability Due to Rigid Asset Dependency in AssetRegistry",
+  "issueId": 261,
+  "issueUrl": "https://github.com/code-423n4/2024-07-reserve-validation/issues/261"
+}
