@@ -1,0 +1,8 @@
+{
+  "contest": 421,
+  "handle": "Sid_Sisodia",
+  "risk": "3",
+  "title": "Unprotected cacheComponents() function in RevenueTraderP1 contract",
+  "issueId": 143,
+  "issueUrl": "https://github.com/code-423n4/2024-07-reserve-validation/issues/143"
+}
