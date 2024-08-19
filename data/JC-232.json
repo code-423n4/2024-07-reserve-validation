@@ -1,0 +1,8 @@
+{
+  "contest": 421,
+  "handle": "JC",
+  "risk": "2",
+  "title": "Missing Input Validation Method Controls in Permit.sol",
+  "issueId": 232,
+  "issueUrl": "https://github.com/code-423n4/2024-07-reserve-validation/issues/232"
+}
