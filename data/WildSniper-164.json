@@ -1,0 +1,8 @@
+{
+  "contest": 421,
+  "handle": "WildSniper",
+  "risk": "3",
+  "title": "in `RTokenP1::issueTo` wrong Dev assumptions about new RToken holders getting revenue from the past",
+  "issueId": 164,
+  "issueUrl": "https://github.com/code-423n4/2024-07-reserve-validation/issues/164"
+}
