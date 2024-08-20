@@ -4,5 +4,7 @@
   "risk": "3",
   "title": "Incorrect Balance Update in `FurnaceP1::melt()` Will Lead to Reduced RToken Melting Over Time",
   "issueId": 63,
-  "issueUrl": "https://github.com/code-423n4/2024-07-reserve-validation/issues/63"
+  "issueUrl": "https://github.com/code-423n4/2024-07-reserve-validation/issues/63",
+  "validatedIssueId": 82,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-07-reserve-findings/issues/82"
 }
