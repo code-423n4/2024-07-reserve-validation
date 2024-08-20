@@ -4,5 +4,7 @@
   "risk": "2",
   "title": "Using endtime for order cancelation deadline of gnosis auction could lead to bait and switch bid tactics",
   "issueId": 200,
-  "issueUrl": "https://github.com/code-423n4/2024-07-reserve-validation/issues/200"
+  "issueUrl": "https://github.com/code-423n4/2024-07-reserve-validation/issues/200",
+  "validatedIssueId": 63,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-07-reserve-findings/issues/63"
 }
