@@ -4,5 +4,7 @@
   "risk": "3",
   "title": "The discrepency in `issuancePremium` accounting, during the `issuance of RTokens` and the `available basket units` calculation in the `BackingManager`, could lead to an `incorrect assessment` of the `collateralization status`",
   "issueId": 211,
-  "issueUrl": "https://github.com/code-423n4/2024-07-reserve-validation/issues/211"
+  "issueUrl": "https://github.com/code-423n4/2024-07-reserve-validation/issues/211",
+  "validatedIssueId": 59,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-07-reserve-findings/issues/59"
 }
