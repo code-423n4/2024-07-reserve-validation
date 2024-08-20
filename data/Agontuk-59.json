@@ -4,5 +4,7 @@
   "risk": "2",
   "title": "Unintended Token Transfer Can Disrupt Distribution Process (`RevenueTraderP1::returnTokens`)",
   "issueId": 59,
-  "issueUrl": "https://github.com/code-423n4/2024-07-reserve-validation/issues/59"
+  "issueUrl": "https://github.com/code-423n4/2024-07-reserve-validation/issues/59",
+  "validatedIssueId": 84,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-07-reserve-findings/issues/84"
 }
