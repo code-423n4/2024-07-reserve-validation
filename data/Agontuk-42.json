@@ -4,5 +4,7 @@
   "risk": "3",
   "title": "Attacker can manipulate auction outcome by exploiting rounding in clearingPrice calculation (`GnosisTrade::settle`)",
   "issueId": 42,
-  "issueUrl": "https://github.com/code-423n4/2024-07-reserve-validation/issues/42"
+  "issueUrl": "https://github.com/code-423n4/2024-07-reserve-validation/issues/42",
+  "validatedIssueId": 88,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-07-reserve-findings/issues/88"
 }
