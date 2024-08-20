@@ -4,5 +4,7 @@
   "risk": "2",
   "title": "Potential Bypass of Era Consistency Check in Proposal Execution ",
   "issueId": 142,
-  "issueUrl": "https://github.com/code-423n4/2024-07-reserve-validation/issues/142"
+  "issueUrl": "https://github.com/code-423n4/2024-07-reserve-validation/issues/142",
+  "validatedIssueId": 72,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-07-reserve-findings/issues/72"
 }
