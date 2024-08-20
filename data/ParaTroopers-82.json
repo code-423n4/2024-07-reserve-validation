@@ -4,5 +4,7 @@
   "risk": "2",
   "title": "Some tokens revert if approval amounts are > type(uint96).max",
   "issueId": 82,
-  "issueUrl": "https://github.com/code-423n4/2024-07-reserve-validation/issues/82"
+  "issueUrl": "https://github.com/code-423n4/2024-07-reserve-validation/issues/82",
+  "validatedIssueId": 103,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-07-reserve-findings/issues/103"
 }
