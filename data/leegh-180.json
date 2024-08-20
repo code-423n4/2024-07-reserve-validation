@@ -4,5 +4,7 @@
   "risk": "2",
   "title": "If the payout criteria are not met, `payoutLastPaid` should not be updated.",
   "issueId": 180,
-  "issueUrl": "https://github.com/code-423n4/2024-07-reserve-validation/issues/180"
+  "issueUrl": "https://github.com/code-423n4/2024-07-reserve-validation/issues/180",
+  "validatedIssueId": 66,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-07-reserve-findings/issues/66"
 }
