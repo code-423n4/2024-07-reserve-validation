@@ -4,5 +4,7 @@
   "risk": "3",
   "title": "Delegation to the `zero address` can lead to permanent loss of the user's voting power",
   "issueId": 208,
-  "issueUrl": "https://github.com/code-423n4/2024-07-reserve-validation/issues/208"
+  "issueUrl": "https://github.com/code-423n4/2024-07-reserve-validation/issues/208",
+  "validatedIssueId": 98,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-07-reserve-findings/issues/98"
 }
