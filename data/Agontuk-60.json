@@ -4,5 +4,7 @@
   "risk": "2",
   "title": "Silent Failure in `settleTrade` Can Lead to Incomplete Operations and Stuck Funds (`RevenueTraderP1::settleTrade`)",
   "issueId": 60,
-  "issueUrl": "https://github.com/code-423n4/2024-07-reserve-validation/issues/60"
+  "issueUrl": "https://github.com/code-423n4/2024-07-reserve-validation/issues/60",
+  "validatedIssueId": 83,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-07-reserve-findings/issues/83"
 }
