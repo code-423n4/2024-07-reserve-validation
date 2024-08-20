@@ -4,5 +4,7 @@
   "risk": "3",
   "title": "The Loss of Fund of the protocol due to Incorrect Boundary Check of Loop",
   "issueId": 120,
-  "issueUrl": "https://github.com/code-423n4/2024-07-reserve-validation/issues/120"
+  "issueUrl": "https://github.com/code-423n4/2024-07-reserve-validation/issues/120",
+  "validatedIssueId": 75,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-07-reserve-findings/issues/75"
 }
