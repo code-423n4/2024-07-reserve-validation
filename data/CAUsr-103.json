@@ -4,5 +4,7 @@
   "risk": "3",
   "title": "Reentrancy in RToken may lead to complete loss of funds",
   "issueId": 103,
-  "issueUrl": "https://github.com/code-423n4/2024-07-reserve-validation/issues/103"
+  "issueUrl": "https://github.com/code-423n4/2024-07-reserve-validation/issues/103",
+  "validatedIssueId": 102,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-07-reserve-findings/issues/102"
 }
