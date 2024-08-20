@@ -4,5 +4,7 @@
   "risk": "2",
   "title": "Not enough gas might still pass on Arbitrum breaking the logic",
   "issueId": 11,
-  "issueUrl": "https://github.com/code-423n4/2024-07-reserve-validation/issues/11"
+  "issueUrl": "https://github.com/code-423n4/2024-07-reserve-validation/issues/11",
+  "validatedIssueId": 95,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-07-reserve-findings/issues/95"
 }
