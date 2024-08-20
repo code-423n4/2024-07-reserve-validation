@@ -4,5 +4,7 @@
   "risk": "3",
   "title": "Malicious users can extract excess RSR due to incorrect rate calculations (`StRSRP1::unstake` and `StRSRP1::withdraw`)",
   "issueId": 47,
-  "issueUrl": "https://github.com/code-423n4/2024-07-reserve-validation/issues/47"
+  "issueUrl": "https://github.com/code-423n4/2024-07-reserve-validation/issues/47",
+  "validatedIssueId": 86,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-07-reserve-findings/issues/86"
 }
