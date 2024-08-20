@@ -4,5 +4,7 @@
   "risk": "2",
   "title": "Lack of sequencer uptime checks can lead to dutch auctions executing at bad prices or failing",
   "issueId": 18,
-  "issueUrl": "https://github.com/code-423n4/2024-07-reserve-validation/issues/18"
+  "issueUrl": "https://github.com/code-423n4/2024-07-reserve-validation/issues/18",
+  "validatedIssueId": 94,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-07-reserve-findings/issues/94"
 }
