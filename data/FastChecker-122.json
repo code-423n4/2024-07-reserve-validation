@@ -4,5 +4,7 @@
   "risk": "2",
   "title": "Lack of Slippage Protection in `issueTo()` functions of the `RToken` contract",
   "issueId": 122,
-  "issueUrl": "https://github.com/code-423n4/2024-07-reserve-validation/issues/122"
+  "issueUrl": "https://github.com/code-423n4/2024-07-reserve-validation/issues/122",
+  "validatedIssueId": 74,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-07-reserve-findings/issues/74"
 }
