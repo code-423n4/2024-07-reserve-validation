@@ -4,5 +4,7 @@
   "risk": "2",
   "title": " Volatile exchange rates cause slippage loss to users during issuance and rebalancing the collateral",
   "issueId": 167,
-  "issueUrl": "https://github.com/code-423n4/2024-07-reserve-validation/issues/167"
+  "issueUrl": "https://github.com/code-423n4/2024-07-reserve-validation/issues/167",
+  "validatedIssueId": 100,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-07-reserve-findings/issues/100"
 }
