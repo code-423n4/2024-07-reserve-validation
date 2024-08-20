@@ -4,5 +4,7 @@
   "risk": "2",
   "title": " `BasketHandler::price` returns the wrong lower end of the price estimate",
   "issueId": 99,
-  "issueUrl": "https://github.com/code-423n4/2024-07-reserve-validation/issues/99"
+  "issueUrl": "https://github.com/code-423n4/2024-07-reserve-validation/issues/99",
+  "validatedIssueId": 78,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-07-reserve-findings/issues/78"
 }
