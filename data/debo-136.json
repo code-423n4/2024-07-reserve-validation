@@ -4,5 +4,7 @@
   "risk": "3",
   "title": "Reentrancy Vulnerability in bidWithCallback(bytes) in the DutchTrade contract",
   "issueId": 136,
-  "issueUrl": "https://github.com/code-423n4/2024-07-reserve-validation/issues/136"
+  "issueUrl": "https://github.com/code-423n4/2024-07-reserve-validation/issues/136",
+  "validatedIssueId": 115,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-07-reserve-findings/issues/115"
 }
