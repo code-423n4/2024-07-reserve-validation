@@ -4,5 +4,7 @@
   "risk": "2",
   "title": "RSR Unstake Denial of Service Due to Underflow Error",
   "issueId": 207,
-  "issueUrl": "https://github.com/code-423n4/2024-07-reserve-validation/issues/207"
+  "issueUrl": "https://github.com/code-423n4/2024-07-reserve-validation/issues/207",
+  "validatedIssueId": 112,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-07-reserve-findings/issues/112"
 }
