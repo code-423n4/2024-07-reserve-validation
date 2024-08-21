@@ -4,5 +4,7 @@
   "risk": "Q",
   "title": "QA Report",
   "issueId": 17,
-  "issueUrl": "https://github.com/code-423n4/2024-07-reserve-validation/issues/17"
+  "issueUrl": "https://github.com/code-423n4/2024-07-reserve-validation/issues/17",
+  "validatedIssueId": 111,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-07-reserve-findings/issues/111"
 }
