@@ -1,0 +1,57 @@
+issue,title,primary finding,validator comment,status,root cause (URL),size
+validation-213,No access control in deployRTokenAsset,,"low effort, clearly function can be permissionless",Unsatisfactory,,30
+validation-193,wrong implement of stake,,"low effort, access control not needed",Unsatisfactory,,36
+validation-146,"wrong implement of ""_register""",,"low effort, issue not understandable",Unsatisfactory,,38
+validation-214,Condition Validation Order,,low effort,Unsatisfactory,,40
+validation-198,wrong calclation of totalStakes in mintStakes,,low effort,Unsatisfactory,,42
+validation-71,DutchAuction and BatchAuction is suspected to reorg attack,findings-24,"satisfactory, not sure if valid",Satisfactory,"https://github.com/code-423n4/2024-07-reserve/blob/3f133997e186465f4904553b0f8e86ecb7bbacbf/contracts/p1/Broker.sol#L246,https://github.com/code-423n4/2024-07-reserve/blob/3f133997e186465f4904553b0f8e86ecb7bbacbf/contracts/p1/Broker.sol#L283",42
+validation-222,Distribution Logic: Ensure distributor.distribute Handles Large Transfers and Potential Failures Gracefully,,"low effort, any number can overflow in the limit, there is no concrete scenario",Unsatisfactory,,47
+validation-239,Insufficient Input Validation in the `toLower` function,,"low effort, there is a comment explicitly stating UTF8 works fine (https://github.com/reserve-protocol/protocol/blob/c8752bcdc5acc291941149881199e18ffadde5aa/contracts/libraries/String.sol#L7) and report fails to address this, it's just generic hypotheticals",Unsatisfactory,,48
+validation-215,A Denial of Service (DoS) attack,,"low effort, just hypotheticals",Unsatisfactory,,50
+validation-194,RToken Upgrade Vulnerability,,"invalid, check is intentional",Unsatisfactory,,50
+validation-150,RSR Seizure Could Unfairly Strip Users of Their Hard-Earned Rewards,,"behavior is intentional, rewards are also seized",Unsatisfactory,,50
+validation-128,Registered ERC20 Tokens Unexpectedly Fail Allowance Granting,,"invalid, AssetRegistry function DOES NOT return false",Unsatisfactory,,51
+validation-221,Basket Management: Validate Collateral Arrays (requireValidCollArray),,low effort,Unsatisfactory,,52
+validation-145,Governance Resets Draft Records Even When DraftRate is Safe or Healthy Which Could Cause Loss of Funds or DOS,,"low effort, logically inconsistent, intended behavior",Unsatisfactory,,52
+validation-217,Invariant check,,"low effort, makes no sense, the values ARE validated",Unsatisfactory,,53
+validation-259,Nonexistent Basket Nonce Check in BasketHandler.sol,,missing check in external view function which is not a valid H/M,Unsatisfactory,,54
+validation-253,Insufficient Gas Validation in AssetRegistry.sol,,"hardcoded values are fine, contracts are upgradeable",Unsatisfactory,,54
+validation-220,Allowance.sol:: function 'safeApproveFallbackToMax' subject to reentrancy,,"unspecific reentrancy concern, I'm pretty sure in old contests (which are marked as known findings) it has been determined that such weird reentrancy tokens are not supported",Unsatisfactory,,54
+validation-101,Lack of Balance Check In RToken's melt() Enables Over-Burning,,_burn() checks for sufficient balance,Unsatisfactory,,54
+validation-81,Unprotected Multiple Issuances in RTokenP1 Contract Allows Incorrect Balance Increase,,"calling the function multiple times is fine, report doesn't show any reentrancy issue",Unsatisfactory,,54
+validation-126,SHORT_FREEZER role revocation occurs before freeze application,,"revoking freezer role and freezing IS atomic, no issue",Unsatisfactory,,55
+validation-262,Uncontrolled Recursion Vulnerability In the `_switchBasket` function can result in DOS,,"hypothetical issue, fails to show such a loop DOS caused by an untrusted role",Unsatisfactory,,56
+validation-109,Inconsistent Last Refresh Timestamp Due to Order of Operations in AssetRegistry.refresh(),,"revert in trackStatus() reverts whole transaction, warden doesn't understand transactions on the blockchain",Unsatisfactory,,56
+validation-255,BackingManager.sol:: Reentrancy Vulnerability in the method settleTrade,,claims there is potential reentrency without evidence,Unsatisfactory,,57
+validation-94,Incorrect Collateralization in redeemCustom(),,"warden does not understand that basketsNeeded is updated by an amount that depends on the ratio of redeemed rTokens vs the total supply, this doesn't have to be weighted by the portions",Unsatisfactory,,59
+validation-93,Insufficient Validation in `redeemCustom()` Function Fails to Ensure Minimum ERC20 Token Redemption Amounts,,"there is no need for the proposed error handling, a revert is the correct behavior",Unsatisfactory,,59
+validation-232,Missing Input Validation Method Controls in Permit.sol,,there is no such thing as valid and invalid EOA,Unsatisfactory,,61
+validation-196,no  _payoutRewards() in withdraw function,,"insufficient quality report, besides I think no payoutRewards() in withdraw() is intended",Unsatisfactory,,61
+validation-124,Asset Registration Inconsistency in AssetRegistry Contract,,"in the provided code snippet you can see that the erc20 is NOT added to the set if it's already in the set, invalid",Unsatisfactory,,61
+validation-108,"Inconsistent asset registry could cause system instability, leading to unexpected behavior or even system failures.",,"invalid because this is known and accepted / mitigated in asset plugins, if an asset starts reverting there are ways to remove it",Unsatisfactory,,61
+validation-86,Inaccurate BasketsNeeded Update in _scaleDown() Function Compromises RToken Collateralization and Stability,,warden suggests an equivalent refactoring (multiplication is commutative),Unsatisfactory,,62
+validation-83,Incorrect Exchange Rate Calculation in `_scaleUp()` Function Allows Inflated RToken Supply and Insufficient Collateral Backing,validation-83,"satsifactory quality, though pretty sure it's invalid",Satisfactory,https://github.com/code-423n4/2024-07-reserve/blob/3f133997e186465f4904553b0f8e86ecb7bbacbf/contracts/p1/RToken.sol#L483-L497,63
+validation-139,Redemption quantities not adjusted for mempool time leading to potential over-redemption,,"at redemption time, the amounts are recalculated, there is no dependence on a previous result from quote()",Unsatisfactory,,66
+validation-118,Duplicate Asset Registration is possible.,,"trying to register an erc20 with different assets reverts as intended, invalid",Unsatisfactory,,66
+validation-80,WETH compatibility in Arbitrum,,"the logic is correct, the suggestion by the warden makes no sense because it would transfer funds from the contract to the contract and they need to be transferred from the bidder",Unsatisfactory,,70
+validation-226,Weak ERC1271 Signature Validation in Permit.sol,,"the magic value is equal to 0x1626ba7e, invalid",Unsatisfactory,,71
+validation-100,Incorrect Minimum Amount Post-Check Leads to Failed Redemptions,,caller is responsible for calling with correct minAmounts array,Unsatisfactory,,72
+validation-224,Array.sol:: Inefficient Array Operations,,gas finding is not H/M,Unsatisfactory,,74
+validation-106,Inconsistent State in AssetRegistry Due to Modifiable _erc20s Array During Refresh,,"asset registration / unregistration is already privileged as suggested by the warden, invalid",Unsatisfactory,,74
+validation-246,Auth.sol:: Re-Entrancy Vulnerability in Freeze Functions,,_revokeRole() does not allow for reentrancy,Unsatisfactory,,78
+validation-91,Improper Handling of Empty `expectedERC20sOut` Array in `redeemCustom()`,,no security impact,Unsatisfactory,,81
+validation-77,Inconsistent RToken Issuance in Rapid Succession,,using current totalSupply() is correct,Unsatisfactory,,83
+validation-89,Inadequate Validation in `redeemCustom()` Function Allows Users to Receive Less Than Minimum Expected Tokens,,not adjusting the minAmounts by pro-rata is correct,Unsatisfactory,,88
+validation-219,Improper error handling ,,low effort,Unsatisfactory,,97
+validation-92,Incorrect Scaling in sqrt Function of Fixed.sol Leads to Incorrect Square Root Calculation,,low effort,Unsatisfactory,,101
+validation-186,RSR holders could get less staked stRSR than expected,validation-186,"sufficient quality report, I think this is at most QA",Satisfactory,https://github.com/code-423n4/2024-07-reserve/blob/3f133997e186465f4904553b0f8e86ecb7bbacbf/contracts/p1/StRSR.sol#L227-L238,104
+validation-201,NO check for the price in manageTokens,,"low effort, no evidence there is an issue",Unsatisfactory,,111
+validation-138,Improper State Transition Handling on the bid function in the DutchTrade contract,,"warden suggests to replace an unreachable assert with a require, invalid",Unsatisfactory,,139
+validation-96,Unchecked Return Values on the Deploy function in the Deployer contract,,"initialization functions revert on failure, there is no need to check anything",Unsatisfactory,,153
+validation-105,Execution Halt Due to Multiple Calls in a Single Transaction in the setRatio function on Furnace contract,,"invalid, there is no risk of unexpected reverts as warden claims",Unsatisfactory,,154
+validation-129,Dependence on Predictable Environment Variable in the delegateBySig function on the StRSRVotes contract,,block.timestamp for signature validation does not require randomness,Unsatisfactory,,171
+validation-207,RSR Unstake Denial of Service Due to Underflow Error,validation-207,"sufficient quality report, interesting finding if true",Satisfactory,https://github.com/code-423n4/2024-07-reserve/blob/3f133997e186465f4904553b0f8e86ecb7bbacbf/contracts/p1/StRSR.sol#L648-L649,182
+validation-111,Block Timestamp Manipulation in permit Function on StRSR contract,,block.timestamp for signature validation does not require randomness,Unsatisfactory,,194
+validation-107,Control Flow Based on block timestamp Can Be Manipulated by Miners in Furnace contract on melt function,,"miners can influence timestamps but that doesn't mean time based reward tracking is vulnerable, and reward tracking does not rely on randomness of timestamps",Unsatisfactory,,251
+validation-136,Reentrancy Vulnerability in bidWithCallback(bytes) in the DutchTrade contract,validation-136,warden provides a poc but pretty sure this is invalid by checking bidder == address(0): https://github.com/code-423n4/2024-07-reserve/blob/3f133997e186465f4904553b0f8e86ecb7bbacbf/contracts/plugins/trading/DutchTrade.sol#L236,Satisfactory,https://github.com/code-423n4/2024-07-reserve/blob/3f133997e186465f4904553b0f8e86ecb7bbacbf/contracts/plugins/trading/DutchTrade.sol#L235-L269,268
+validation-140,Critical Bug in prepareTradeToCoverDeficit Function Causing Zero Sell Amount in TradeLib Contract,validation-140,"warden provides a poc, probably not valid",Satisfactory,https://github.com/reserve-protocol/protocol/blob/4.0.0/contracts/p1/mixins/TradeLib.sol#L148,272
